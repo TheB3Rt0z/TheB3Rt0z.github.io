@@ -34,6 +34,8 @@ function init ()
 	
     $(function ()
     {
+    	var audio_player = document.getElementById('audio-player');
     	
+    	audio_player.play(); // not working because of policies..
     });
 }
