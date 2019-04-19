@@ -4,8 +4,9 @@
 }
 
 html {
+	background-attachment: fixed;
 	background-color: black;
-	background-image: url('background.png');
+	background-image: url('background.jpg');
 	background-position: center;
 	background-repeat: repeat-x;
 	background-size: auto 100%;
@@ -52,15 +53,13 @@ table td img {
 }
 
 #footer {
-	border: solid 1px rgba(255, 255, 255, .333);
-    border-radius: 6px;
-    bottom: 0;
+	bottom: 0;
     display: flex;
     margin: 1px;
     overflow: hidden;
     padding: 0;
     position: fixed;
-    width: calc(100% - 4px);
+    width: calc(100% - 2px);
 }
 
 #footer audio {
