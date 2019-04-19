@@ -25,13 +25,13 @@ function init ()
     {
     	var html = document.documentElement;
 
-    	if (html.requestFullscreen) {
+    	if (html.hasOwnProperty('requestFullscreen')) {
     		html.requestFullscreen();
-    	} else if (html.mozRequestFullScreen) { /* Firefox */
+    	} else if (html.hasOwnProperty('mozRequestFullScreen')) { /* Firefox */
     		html.mozRequestFullScreen();
-    	} else if (html.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+    	} else if (html.hasOwnProperty('webkitRequestFullscreen')) { /* Chrome, Safari and Opera */
     		html.webkitRequestFullscreen();
-    	} else if (html.msRequestFullscreen) { /* IE/Edge */
+    	} else if (html.hasOwnProperty('msRequestFullscreen')) { /* IE/Edge */
     		html.msRequestFullscreen();
     	}
     });
