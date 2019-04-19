@@ -1,4 +1,20 @@
-@media only screen and (min-width: 768px) /* big mobile */
+@media only screen and (min-width: 1024px) /* big mobile */
+{
+    body {
+        font-size: 2em !important;
+    }
+    
+    table td.icon {
+        text-align: center;
+        width: 56px;
+    }
+    
+    table td.icon img {
+        width: 95%;
+    }
+}
+
+@media only screen and (min-width: 768px) /* mobile */
 {
     body {
         font-size: 1.333em;

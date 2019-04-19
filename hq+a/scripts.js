@@ -21,18 +21,19 @@ if (typeof jQuery == 'undefined') {
 
 function init ()
 {
+	/*var html = document.documentElement;
+	if (html.hasOwnProperty('requestFullscreen')) {
+		html.requestFullscreen();
+	} else if (html.hasOwnProperty('mozRequestFullScreen')) { // Firefox
+		html.mozRequestFullScreen();
+	} else if (html.hasOwnProperty('webkitRequestFullscreen')) { // Chrome, Safari and Opera
+		html.webkitRequestFullscreen();
+	} else if (html.hasOwnProperty('msRequestFullscreen')) { // IE/Edge
+		html.msRequestFullscreen();
+	}*/
+	
     $(function ()
     {
-    	var html = document.documentElement;
-
-    	if (html.hasOwnProperty('requestFullscreen')) {
-    		html.requestFullscreen();
-    	} else if (html.hasOwnProperty('mozRequestFullScreen')) { /* Firefox */
-    		html.mozRequestFullScreen();
-    	} else if (html.hasOwnProperty('webkitRequestFullscreen')) { /* Chrome, Safari and Opera */
-    		html.webkitRequestFullscreen();
-    	} else if (html.hasOwnProperty('msRequestFullscreen')) { /* IE/Edge */
-    		html.msRequestFullscreen();
-    	}
+    	
     });
 }
