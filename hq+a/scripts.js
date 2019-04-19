@@ -23,6 +23,16 @@ function init ()
 {
     $(function ()
     {
-    	
+    	var html = document.documentElement;
+
+    	if (html.requestFullscreen) {
+    		html.requestFullscreen();
+    	} else if (html.mozRequestFullScreen) { /* Firefox */
+    		html.mozRequestFullScreen();
+    	} else if (html.webkitRequestFullscreen) { /* Chrome, Safari and Opera */
+    		html.webkitRequestFullscreen();
+    	} else if (html.msRequestFullscreen) { /* IE/Edge */
+    		html.msRequestFullscreen();
+    	}
     });
 }
