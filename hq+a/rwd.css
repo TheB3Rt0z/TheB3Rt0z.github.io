@@ -1,0 +1,25 @@
+@media only screen and (min-width: 768px) /* big mobile */
+{
+    body {
+        font-size: 1.333em;
+    }
+}
+
+@media only screen and (max-width: 480px) /* small mobile */
+{
+	body {
+	    font-size: .666em;
+	}
+}
+
+@media only screen and (max-width: 375px) /* smaller mobile */
+{
+    table td {
+	    padding: 3px;
+	}
+	
+	table td.icon {
+	    height: 24px;
+	    width: 24px;
+	}
+}
