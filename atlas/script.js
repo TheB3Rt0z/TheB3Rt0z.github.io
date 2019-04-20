@@ -219,7 +219,7 @@ function init ()
             sidebar_monitor = $('body #content #sidebar > nav#monitor'),
             footer = $('body #footer #toolbar');
         
-        $.ajax('/data.json', {
+        $.ajax('data.json', {
             type: 'GET',
             dataType: 'json',
             success: function (data, textStatus, jqXHR)
