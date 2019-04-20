@@ -1,0 +1,334 @@
+    <html>
+    	<head>
+    		<title>Bös-o-Meter | Ver. 0.0.1</title>
+    		<meta charset="UTF-8" />
+    		<link rel="shortcut icon" href="//x.doitiways.online/wp-content/uploads/2016/09/i-ways-fav.png">
+    		<style type="text/css">
+    			body {
+    				font-family: monospace;
+    				font-size: 10px;
+    				margin: 0;
+    				padding: 0;
+    			}
+    			body > div {
+    				background-color: rgba(0, 0, 0, .125);
+    				background-image: linear-gradient(white 1px, transparent 1px),
+    				                  linear-gradient(90deg, white 1px, transparent 1px),
+    				                  linear-gradient(rgba(255, 255, 255, .25) 1px, transparent 1px),
+    				                  linear-gradient(90deg, rgba(255, 255, 255, .25) 1px, transparent 1px);
+    				background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    				background-position: center center;
+    				border: solid 1px rgba(0, 0, 0, .5);
+    				border-radius: 10px;
+    				box-shadow: 0 0 10px rgba(0, 0, 0, .5);
+    				float: left;
+    				height: 92.5%;
+    				margin: 1%;
+    				max-height: 768px;
+    				max-width: 1024px;
+    				min-width: 354px;
+    				position: relative;
+    			}
+
+    			body > div > span {
+    				position: absolute;
+    			}
+
+    			body > div > span.layer {
+    				background-color: transparent;
+    				border-radius: 10px;
+    				height: 100%;
+    				width: 100%;
+    			}
+    			body > div > span.layer#badness-gradient {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3f00ff+0,ff0000+100&0+0,0.5+100 */
+    background: -moz-linear-gradient(left,  rgba(63,0,255,0) 0%, rgba(255,0,0,0.5) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  rgba(63,0,255,0) 0%,rgba(255,0,0,0.5) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  rgba(63,0,255,0) 0%,rgba(255,0,0,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003f00ff', endColorstr='#80ff0000',GradientType=1 ); /* IE6-9 */
+    			}
+    			body > div > span.layer#engagement-gradient {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3fffff+0,3f00ff+100&0.5+0,0+50 */
+    background: -moz-linear-gradient(top,  rgba(63,255,255,0.5) 0%, rgba(63,128,255,0) 50%, rgba(63,0,255,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top,  rgba(63,255,255,0.5) 0%,rgba(63,128,255,0) 50%,rgba(63,0,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom,  rgba(63,255,255,0.5) 0%,rgba(63,128,255,0) 50%,rgba(63,0,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#803fffff', endColorstr='#003f00ff',GradientType=0 ); /* IE6-9 */
+    }
+    			body > div > span.layer#performance-gradient {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3f00ff+0,3f00ff+100&0+0,0.5+25,0.5+50,0+100 */
+    background: -moz-linear-gradient(-45deg,  rgba(63,0,255,0) 0%, rgba(63,0,255,0.5) 25%, rgba(63,0,255,0.5) 50%, rgba(63,0,255,0) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg,  rgba(63,0,255,0) 0%,rgba(63,0,255,0.5) 25%,rgba(63,0,255,0.5) 50%,rgba(63,0,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg,  rgba(63,0,255,0) 0%,rgba(63,0,255,0.5) 25%,rgba(63,0,255,0.5) 50%,rgba(63,0,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#003f00ff', endColorstr='#003f00ff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    			}
+    			body > div > span.layer#average-gradient {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0.5+0,0+100 */
+    background: -moz-radial-gradient(center, ellipse cover,  rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center,  rgba(255,255,255,0.5) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#80ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    			}
+
+    			body > div > span.line {
+    				background-color: white;
+    				height: .5%;
+    				opacity: .25;
+    				width: .5%;
+    			}
+    			body > div > span.line.thin {
+    				background-color: white;
+    				height: .25%;
+    				width: .25%;
+    			}
+    			body > div > span.line#centering-vertical {
+    				height: 100%;
+    				left: 49.75%;
+    			}
+    			body > div > span.line#centering-horizontal {
+    				width: 100%;
+    				top: 49.75%;
+    			}
+
+    			body > div > span.line#humanity-left {
+    				height: 100%;
+    				left: 18.5%;
+    			}
+    			body > div > span.line#humanity-right {
+    				height: 100%;
+    				left: 81%;
+    			}
+    			body > div > span.line#stakanovism-top {
+    				width: 100%;
+    				top: 18.5%;
+    			}
+    			body > div > span.line#stakanovism-bottom {
+    				width: 100%;
+    				top: 81%;
+    			}
+
+    			body > div > span.text {
+    				color: white;
+    				font-size: 14px;
+    				height: auto;
+    				max-height: 768px;
+    				max-width: 1024px;
+    				min-width: 354px;
+    				text-align: center;
+    				text-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    				width: 100%;
+    			}
+    			body > div > span.text.rotated {
+    			    transform: rotate(270deg);
+    				-webkit-transform: rotate(270deg);
+    				-moz-transform: rotate(270deg);
+    				-o-transform: rotate(270deg);
+    				writing-mode: lr-tb;
+    			}
+    			body > div > span.text.sector {
+    			    font-size: 40px;
+    			    opacity: .125;
+    				width: 50%;
+    			}
+
+    			body > div > span.text#badness-top {
+    				top: 1%;
+    			}
+    			body > div > span.text#badness-bottom {
+    				top: 97%;
+    			}
+    			body > div > span.text#engagement-left {
+    				left: -48.5%;
+    				top: 50%;
+    			}
+    			body > div > span.text#engagement-right {
+    				left: 48.5%;
+    				top: 50%;
+    			}
+
+    			body > div > span.text#heavenly-creatures {
+    				left: 0;
+    				top: 22.5%;
+    			}
+    			body > div > span.text#top-players {
+    				left: 50%;
+    				top: 22.5%;
+    			}
+    			body > div > span.text#meat-nor-fish {
+    				left: 0;
+    				top: 72.5%;
+    			}
+    			body > div > span.text#criminal-minds {
+    				left: 50%;
+    				top: 72.5%;
+    			}
+
+    			body > div > span.mark {
+    				background-color: grey;
+    				border: solid 1px white;
+    				border-radius: 5px;
+    				box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+    				cursor: pointer;
+    				height: 11px;
+    				overflow: hidden;
+    				transition: .125s;
+    				white-space: nowrap;
+    				width: 14px;
+    			}
+    			body > div > span.mark:hover {
+    				background-color: white;
+    				height: auto;
+    				padding: 5px;
+    				width: auto;
+    			}
+    			body > div > span.mark:hover > small {
+    				display: none;
+    			}
+    			body > div > span.mark > small {
+    				color: white;
+    				font-size: 8px;
+    			}
+
+    			body > div > div {
+    				font-size: 12px;
+    				line-height: 15px;
+    				padding: 8px;
+    			}
+
+    			body > p {
+    				clear: both;
+    				margin: 1%;
+    				text-align: center;
+    			}
+    		</style>
+    	</head>
+    	<body>
+    		<div style="width:98%">
+    			<span class="layer" id="badness-gradient"></span>
+    			<span class="layer" id="engagement-gradient"></span>
+    			<span class="layer" id="performance-gradient"></span>
+    			<span class="layer" id="average-gradient"></span>
+
+    			<span class="line" id="centering-vertical"></span>
+    			<span class="line" id="centering-horizontal"></span>
+    			<span class="line thin" id="humanity-left"></span>
+    			<span class="line thin" id="humanity-right"></span>
+    			<span class="line thin" id="stakanovism-top"></span>
+    			<span class="line thin" id="stakanovism-bottom"></span>
+
+    			<span class="text" id="badness-top">&raquo; Badness &raquo;</span>
+    			<span class="text" id="badness-bottom">&raquo; Badness &raquo;</span>
+    			<span class="text rotated" id="engagement-left">&raquo; Engagement &raquo;</span>
+    			<span class="text rotated" id="engagement-right">&raquo; Engagement &raquo;</span>
+    			<span class="text sector" id="heavenly-creatures">Heavenly Creatures</span>
+    			<span class="text sector" id="top-players">Top Players</span>
+    			<span class="text sector" id="meat-nor-fish">Meat nor Fish</span>
+    			<span class="text sector" id="criminal-minds">Criminal Minds</span>
+
+    			    				<span class="mark" id="andrea" title="62.50% / 50.00%"
+    				      style="left:36.625%;top:36.625%">
+    					<small>(A)</small>
+    					Andrea (74.98%)    				</span>
+    		            				<span class="mark" id="andre" title="50.00% / 37.50%"
+    				      style="left:36.625%;top:61.625%">
+    					<small>(A)</small>
+    					André (58.32%)    				</span>
+    		            				<span class="mark" id="ankica" title="50.00% / 87.50%"
+    				      style="left:86.625%;top:11.625%">
+    					<small>(A)</small>
+    					Ankica (91.64%)    				</span>
+    		            				<span class="mark" id="arturas" title="25.00% / 50.00%"
+    				      style="left:74.125%;top:74.125%">
+    					<small>(A)</small>
+    					Arturas (49.99%)    				</span>
+    		            				<span class="mark" id="ben" title="62.50% / 62.50%"
+    				      style="left:49.125%;top:24.125%">
+    					<small>(B)</small>
+    					Benjamin (83.31%)    				</span>
+    		            				<span class="mark" id="der-dirk" title="62.50% / 75.00%"
+    				      style="left:61.625%;top:11.625%">
+    					<small>(D)</small>
+    					Der Dirk (91.64%)    				</span>
+    		            				<span class="mark" id="der-kosack" title="0.00% / 50.00%"
+    				      style="left:97.75%;top:97.5%">
+    					<small>(D)</small>
+    					Der Kosack (33.33%)    				</span>
+    		            				<span class="mark" id="dirk" title="50.00% / 56.25%"
+    				      style="left:55.375%;top:42.875%">
+    					<small>(D)</small>
+    					Dirk (70.82%)    				</span>
+    		            				<span class="mark" id="florian" title="50.00% / 62.50%"
+    				      style="left:61.625%;top:36.625%">
+    					<small>(F)</small>
+    					Florian (74.98%)    				</span>
+    		            				<span class="mark" id="gilang" title="75.00% / 50.00%"
+    				      style="left:24.125%;top:24.125%">
+    					<small>(G)</small>
+    					Gilang (83.31%)    				</span>
+    		            				<span class="mark" id="ivk" title="37.50% / 75.00%"
+    				      style="left:86.625%;top:36.625%">
+    					<small>(I)</small>
+    					I.v.K. (74.98%)    				</span>
+    		            				<span class="mark" id="janine" title="37.50% / 50.00%"
+    				      style="left:61.625%;top:61.625%">
+    					<small>(J)</small>
+    					Janine (58.32%)    				</span>
+    		            				<span class="mark" id="jordan" title="68.75% / 56.25%"
+    				      style="left:36.625%;top:24.125%">
+    					<small>(J)</small>
+    					Jordan (83.31%)    				</span>
+    		            				<span class="mark" id="karsten" title="50.00% / 68.75%"
+    				      style="left:67.875%;top:30.375%">
+    					<small>(K)</small>
+    					Karsten (79.15%)    				</span>
+    		            				<span class="mark" id="krishna" title="100.00% / 50.00%"
+    				      style="left:0.75%;top:1%">
+    					<small>(K)</small>
+    					Krishna (99.98%)    				</span>
+    		            				<span class="mark" id="peggy" title="50.00% / 43.75%"
+    				      style="left:42.875%;top:55.375%">
+    					<small>(P)</small>
+    					Peggy (62.48%)    				</span>
+    		            				<span class="mark" id="robert" title="53.13% / 65.63%"
+    				      style="left:61.625%;top:30.375%">
+    					<small>(R)</small>
+    					Robert (79.15%)    				</span>
+    		            				<span class="mark" id="rvk" title="50.00% / 0.00%"
+    				      style="left:0.75%;top:97.5%">
+    					<small>(R)</small>
+    					R.v.K. (33.33%)    				</span>
+    		            				<span class="mark" id="sergey" title="31.25% / 56.25%"
+    				      style="left:74.125%;top:61.625%">
+    					<small>(S)</small>
+    					Sergey (58.32%)    				</span>
+    		            				<span class="mark" id="svk" title="37.50% / 62.50%"
+    				      style="left:74.125%;top:49.125%">
+    					<small>(S)</small>
+    					S.v.K. (66.65%)    				</span>
+    		            				<span class="mark" id="theb3rt0z" title="50.00% / 75.00%"
+    				      style="left:74.125%;top:24.125%">
+    					<small>(T)</small>
+    					TheB3Rt0z (83.31%)    				</span>
+    		            				<span class="mark" id="valeri" title="46.88% / 65.63%"
+    				      style="left:67.875%;top:36.625%">
+    					<small>(V)</small>
+    					Valeri (74.98%)    				</span>
+    		            				<span class="mark" id="yasha" title="50.00% / 50.00%"
+    				      style="left:49.125%;top:49.125%">
+    					<small>(Y)</small>
+    					Yasha (66.65%)    				</span>
+    		            		</div>
+    		<div style="z-index:-1">
+    			<div>
+    				<u>Overall report</u>:<br />
+    				<br />
+    				Total Elements: 23<br />Overall Karma: 50.00%<br />Overall Power: 56.52%<br />Overall Performance: 71.00%<br />    				<br />
+    				<hr />
+    				<br />
+    				<u>Settings</u>:<br />
+    				<br />
+    				<input name="andrea" type="checkbox" /> Andrea (74.98%)<br /><input name="andre" type="checkbox" /> André (58.32%)<br /><input name="ankica" type="checkbox" /> Ankica (91.64%)<br /><input name="arturas" type="checkbox" /> Arturas (49.99%)<br /><input name="ben" type="checkbox" /> Benjamin (83.31%)<br /><input name="der-dirk" type="checkbox" /> Der Dirk (91.64%)<br /><input name="der-kosack" type="checkbox" /> Der Kosack (33.33%)<br /><input name="dirk" type="checkbox" /> Dirk (70.82%)<br /><input name="florian" type="checkbox" /> Florian (74.98%)<br /><input name="gilang" type="checkbox" /> Gilang (83.31%)<br /><input name="ivk" type="checkbox" /> I.v.K. (74.98%)<br /><input name="janine" type="checkbox" /> Janine (58.32%)<br /><input name="jordan" type="checkbox" /> Jordan (83.31%)<br /><input name="karsten" type="checkbox" /> Karsten (79.15%)<br /><input name="krishna" type="checkbox" /> Krishna (99.98%)<br /><input name="peggy" type="checkbox" /> Peggy (62.48%)<br /><input name="robert" type="checkbox" /> Robert (79.15%)<br /><input name="rvk" type="checkbox" /> R.v.K. (33.33%)<br /><input name="sergey" type="checkbox" /> Sergey (58.32%)<br /><input name="svk" type="checkbox" /> S.v.K. (66.65%)<br /><input name="theb3rt0z" type="checkbox" /> TheB3Rt0z (83.31%)<br /><input name="valeri" type="checkbox" /> Valeri (74.98%)<br /><input name="yasha" type="checkbox" /> Yasha (66.65%)<br />    			</div>
+    		</div>
+    		<p>The incredible Bös-o-Meter | Ver. 0.0.1 | Copyright &copy; 2017 TheB3Rt0z für i-ways GmbH</p>
+    	</body>
+    </html>
+    
