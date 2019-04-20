@@ -1,0 +1,80 @@
+{
+    "countries": [
+        {
+            "iso": "GBR",
+            "label": "United Kingdom",
+            "area": 244820,
+            "population": 62348447,
+            "gdp": 2490000000000,
+            "style": {
+                "abs_x": 47.03,
+                "abs_y": 17.12,
+                "background_x": 480,
+                "background_y": 720
+            },
+            "relations": {
+                "market": ["EUR"]
+            }
+        }, {
+            "iso": "ITA",
+            "label": "Italia",
+            "area": 301230,
+            "population": 60340328,
+            "gdp": 2068000000000,
+            "style": {
+                "abs_x": 50.73,
+                "abs_y": 24.46,
+                "background_x": 960,
+                "background_y": 300
+            }
+        }, {
+            "iso": "NZL",
+            "label": "New Zealand",
+            "area": 268680,
+            "population": 4252277,
+            "gdp": 181100000000,
+            "style": {
+                "abs_x": 90.31,
+                "abs_y": 73.62,
+                "background_x": 720,
+                "background_y": 480
+            }
+        }, {
+            "iso": "RUS",
+            "label": "Росси́йская Федера́ция",
+            "area": 17100000,
+            "population": 140702000,
+            "gdp": 2113000000000,
+            "style": {
+                "abs_x": 67.28,
+                "abs_y": 12.96,
+                "background_x": 960,
+                "background_y": 540
+            }
+        }, {
+            "iso": "USA",
+            "label": "United States",
+            "area": 9629091,
+            "population": 310232863,
+            "gdp": 16720000000000,
+            "style": {
+                "abs_x": 21.48,
+                "abs_y": 26.33,
+                "background_x": 600,
+                "background_y": 720
+            }
+        }, {
+            "iso": "EUR",
+            "label": "EUROPA",
+            "area": 10180000,
+            "population": 741447158,
+            "gdp": 16713893000000,
+            "style": {
+                "abs_x": 50.73,
+                "abs_y": 20.99,
+                "background_x": 1200,
+                "background_y": 360
+            }
+        }
+    ]
+}

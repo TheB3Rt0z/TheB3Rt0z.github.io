@@ -1,0 +1,62 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <title>Atlas</title>
+        <meta charset="UTF-8" />
+        <meta name="author" content="" />
+        <meta name="copyright" content="" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="script.js"></script>
+    </head>
+    
+    <body>
+        <header id="header">
+            <nav id="navigation">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="show-macro-countries">Show macro-countries</label>:
+                            <input id="show-macro-countries" type="checkbox" checked />
+                        </td>
+                        <td>
+                            <label for="hide-small-countries">Hide small countries</label>:
+                            <input id="hide-small-countries" type="checkbox" checked />
+                        </td>
+                    </tr>
+                </table>
+            </nav>
+        </header>
+
+        <div id="content">
+            <span class="fader left"></span>
+            <span class="fader right"></span>
+
+            <section id="section">
+                <canvas id="canvas"></canvas>
+            </section>
+            
+            <aside id="sidebar">
+                <nav id="options">
+                
+                </nav>
+                <nav id="monitor">
+                    <p>Click on something to get information about it 8-)</p>
+                </nav>
+            </aside>
+            
+            <span class="fader left"></span>
+            <span class="fader right"></span>
+        </div>
+
+        <footer id="footer">
+            <nav id="toolbar"></nav>
+        </footer>
+    </body>
+</html>
