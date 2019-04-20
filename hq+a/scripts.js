@@ -40,8 +40,8 @@ function init ()
     	    audio_loop_control = $('#playlist #player-loop'),
     	    audio_stop_control = $('#playlist #player-stop');
     	
-    	audio_player.load()
-    	audio_player.play(); // not working because of policies..
+    	/*audio_player.load()
+    	audio_player.play();*/ // not working because of policies..
     	
     	audio_loop_control.on('click', function ()
 		{
