@@ -38,6 +38,13 @@ a.active {
 	text-shadow: 0 0 25px red;
 }
 
+ul,
+ol {
+	margin-block-end: 0;
+	margin-block-start: 0;
+    padding-inline-start: 1em;
+}
+
 table {
 	border-spacing: 1px;
 	width: 100%;
@@ -80,6 +87,10 @@ table td.logo img {
 table td img {
     max-width: 100%;
     vertical-align: middle;
+}
+
+nav {
+	margin-bottom: 6px;
 }
 
 #header {
