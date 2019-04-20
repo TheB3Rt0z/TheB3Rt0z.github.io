@@ -69,6 +69,13 @@ table td.icon {
 table th.title {
     white-space: nowrap;
 }
+table td.logo {
+	text-align: right;
+}
+
+table td.logo img {
+	max-height: 175px;
+}
 
 table td img {
     max-width: 100%;
@@ -87,7 +94,6 @@ table td img {
 
 #content #sidebar {
 	margin-left: 6px;
-	width: calc(50% - 3px);
 }
 
 #content #sidebar #playlist th span {

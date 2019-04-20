@@ -1,7 +1,7 @@
 @media only screen and (min-width: 1024px) /* big mobile */
 {
     body {
-        font-size: 2em !important;
+        font-size: 1.666em !important;
     }
     
     table td.icon {
@@ -26,16 +26,48 @@
 	body {
 	    font-size: .666em;
 	}
+	
+	table th,
+	table td {
+        padding: 4px;
+    }
+    
+    #header {
+	    margin-bottom: 4px;
+	}
+    
+    #content #section,
+    #content #sidebar {
+        width: calc(50% - 2px);
+    }
+    
+    #content #sidebar {
+        margin-left: 4px;
+    }
 }
 
 @media only screen and (max-width: 375px) /* smaller mobile */
 {
+    table th,
     table td {
-	    padding: 3px;
+	    padding: 2px;
 	}
 	
 	table td.icon {
 	    height: 24px;
 	    width: 24px;
+	}
+    
+    #header {
+        margin-bottom: 2px;
+    }
+    
+    #content #section,
+	#content #sidebar {
+	    width: calc(50% - 1px);
+	}
+	
+	#content #sidebar {
+	    margin-left: 2px;
 	}
 }
