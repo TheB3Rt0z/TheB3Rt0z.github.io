@@ -21,7 +21,7 @@ body {
 	font-family: 'HeroQuest';
 	font-size: 1em;
 	margin: 1px;
-    padding: 0;
+    padding: 0 0 50px 0; /* because of fixed-positioned audio-player */
     text-shadow: 0 0 5px black;
 }
 
@@ -99,6 +99,10 @@ nav {
 
 #header {
 	margin-bottom: 6px;
+}
+
+#content {
+	overflow: hidden;
 }
 
 #content #section,
