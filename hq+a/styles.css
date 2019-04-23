@@ -102,6 +102,44 @@ nav {
 	margin-bottom: 6px;
 }
 
+#header #status-controller {
+	border-radius: 3px;
+	cursor: pointer;
+	direction: ltr;
+	overflow: hidden;
+	width: 100%;
+}
+
+#header #status-controller.active {
+    direction: rtl;
+}
+
+#header #status-controller > div {
+	width: 200%;
+}
+
+#header #status-controller > div > span {
+	background-image: url('favicon.ico');
+	background-position: right center;
+	background-repeat: no-repeat;
+	clear: none;
+	direction: ltr;
+	display: inline-block;
+	float: left;
+	text-align: center;
+}
+
+#header #status-controller > div > span.preparation-phase {
+	background-color: forestgreen;
+	width: 50%;
+}
+
+#header #status-controller > div > span.in-game-phase {
+    background-color: orangered;
+    background-position: left center;
+    width: 50%;
+}
+
 #content {
 	overflow: hidden;
 }

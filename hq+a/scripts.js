@@ -34,6 +34,14 @@ function init ()
 	
     $(function ()
     {
+    	$('#status-controller').on('click', function (e)
+		{
+    		$(this).toggleClass('active');
+		});
+    	
+    	
+    	/* audio */
+    	
     	var audio_player = document.getElementById('audio-player'),
     	    audio_tracks = $('#playlist a'),
     	    audio_loop = true,
