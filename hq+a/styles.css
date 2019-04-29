@@ -78,7 +78,8 @@ table td.icon {
     width: 32px;
 }
 
-table th.title {
+table th.title,
+table td.copyright {
     white-space: nowrap;
 }
 table td.logo {
