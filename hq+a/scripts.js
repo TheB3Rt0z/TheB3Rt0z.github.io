@@ -34,11 +34,26 @@ function init ()
 	
     $(function ()
     {
-    	$('#status-controller').on('click', function (e)
+    	var status_controller = $('#status-controller'),
+    	    status_controller_import = status_controller.find('#status-import'),
+    	    status_controller_export = status_controller.find('#status-export');
+    	
+    	status_controller.on('click', function (e)
 		{
     		$(this).toggleClass('active');
 		});
     	
+    	status_controller_import.on('click', function (e)
+		{
+    		e.stopPropagation();
+    		alert('IMPORT!');
+		});
+    	
+    	status_controller_export.on('click', function (e)
+		{
+    		e.stopPropagation();
+    		alert('EXPORT!');
+		});
     	
     	/* audio */
     	

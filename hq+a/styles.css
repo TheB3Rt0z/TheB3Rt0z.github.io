@@ -120,7 +120,7 @@ nav {
 
 #header #status-controller > div > span {
 	background-image: url('favicon.ico');
-	background-position: right center;
+	background-position: 1% center;
 	background-repeat: no-repeat;
 	clear: none;
 	direction: ltr;
@@ -131,13 +131,33 @@ nav {
 
 #header #status-controller > div > span.preparation-phase {
 	background-color: forestgreen;
-	width: 50%;
+	padding-left: 5%;
+	width: 45%;
 }
 
 #header #status-controller > div > span.in-game-phase {
     background-color: orangered;
-    background-position: left center;
-    width: 50%;
+    background-position: 99% center;
+    padding-right: 5%;
+    width: 45%;
+}
+
+#header #status-controller > div > span.preparation-phase > button {
+    float: right; 
+}
+
+#header #status-controller > div > span.in-game-phase > button {
+    float: left;
+}
+
+#header #status-controller > div > span > button {
+	border-radius: 3px;
+	color: white;
+	cursor: pointer;
+	font-size: .75em;
+	margin: 1%;
+    padding: 0 1%;
+    text-shadow: 0 0 5px red;
 }
 
 #content {
