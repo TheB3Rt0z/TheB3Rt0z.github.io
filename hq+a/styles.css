@@ -30,7 +30,7 @@ a {
 	color: #ccc;
 	text-decoration: underline;
 	text-shadow: 0 0 5px red;
-	transition: .125s;
+	transition: .128s;
 }
 
 a:hover,
@@ -48,6 +48,18 @@ ol {
 
 ul {
 	list-style-type: disc;
+}
+
+button {
+	border-radius: 6px;
+	cursor: pointer;
+	padding: 5px 10px;
+	transition: .128s;
+}
+
+button:hover {
+	background-color: white;
+    color: red;	
 }
 
 table {
@@ -80,12 +92,14 @@ table td.icon {
 
 table th.title,
 table td.copyright {
-	transition: .127s;
+	transition: .256s;
     white-space: nowrap;
 }
 
 table th.title.saving-data {
 	color: red;
+	text-shadow: 0 0 10px white;
+	transition: none;
 }
 
 table td.logo {
@@ -184,7 +198,7 @@ nav {
 #content #sidebar #playlist th span {
 	color: #999;
 	cursor: pointer;
-	transition: .125s;
+	transition: .128s;
 }
 
 #content #sidebar #playlist th span:hover,
@@ -203,6 +217,7 @@ nav {
 
 #content #sidebar #playlist td {
     text-align: center;
+    width: 33%;
 }
 #content #sidebar #playlist td a {
 	display: block;

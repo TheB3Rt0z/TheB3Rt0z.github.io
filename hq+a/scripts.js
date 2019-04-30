@@ -29,14 +29,17 @@ function save_data (application_title)
 	{
 		application_title.removeClass('saving-data');
 		clearInterval(data_save);
-	}, 128);
+	}, 256);
 }
 
 function init ()
 {
 	window.hqa_data = localStorage.getItem('hqa_data')
 	                ? JSON.parse(localStorage.getItem('hqa_data'))
-	                : {status: 'preparation'};
+	                : {
+	    status: 'preparation',
+	    players: []
+	};
 	
 	/*var html = document.documentElement;
 	if (html.hasOwnProperty('requestFullscreen')) {
@@ -55,6 +58,7 @@ function init ()
     	    status_controller = $('#status-controller'),
     	    status_controller_import = status_controller.find('#status-import'),
     	    status_controller_export = status_controller.find('#status-export'),
+    	    reset_button = $('#reset-data'),
     	    utility_textarea = $('#footer ~ textarea');
     	
     	if (window.hqa_data.status == 'in-game') {
@@ -71,11 +75,6 @@ function init ()
     			window.hqa_data.status = 'preparation';
     		}
 		});
-    	
-    	utility_textarea.on('dblclick submit', function (e)
-		{
-    		$(this).hide(255);
-		});
 
     	status_controller_import.on('click', function (e)
 		{
@@ -87,6 +86,19 @@ function init ()
 		{
     		e.stopPropagation();
     		utility_textarea.val(JSON.stringify(window.hqa_data)).show(255).select();
+		});
+    	
+    	reset_button.on('click', function ()
+		{
+    		if (confirm('Are you SURE?!')) {
+    			localStorage.removeItem('hqa_data');
+    			location.reload();
+    		}
+		});
+    	
+    	utility_textarea.on('dblclick submit', function (e)
+		{
+    		$(this).hide(255);
 		});
     	
     	/* audio */
