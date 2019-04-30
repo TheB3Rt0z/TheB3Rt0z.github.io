@@ -217,8 +217,14 @@ nav {
 
 #content #sidebar #playlist td {
     text-align: center;
+    transition: .128s;
     width: 33%;
 }
+
+#content #sidebar #playlist td:hover {
+    background-color: rgba(255, 255, 255, .333);
+}
+
 #content #sidebar #playlist td a {
 	display: block;
     font-size: .75em;
