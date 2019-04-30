@@ -29,7 +29,7 @@ function save_data (application_title)
 	{
 		application_title.removeClass('saving-data');
 		clearInterval(data_save);
-	}, 255);
+	}, 128);
 }
 
 function init ()
@@ -135,5 +135,5 @@ function init ()
     	var application_title = $('table th.title');
     	application_title.addClass('saving-data');
         save_data(application_title);
-    }, 4096); // milliseconds
+    }, 2048); // milliseconds, circa 29,3 pro minute..
 }

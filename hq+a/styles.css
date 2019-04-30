@@ -80,7 +80,7 @@ table td.icon {
 
 table th.title,
 table td.copyright {
-	transition: .255s;
+	transition: .127s;
     white-space: nowrap;
 }
 
