@@ -223,3 +223,13 @@ nav {
 #footer audio {
 	width: 100%;
 }
+
+#footer ~ textarea {
+    border: 0;
+    display: none;
+    height: calc(100% - 2px);
+    margin: 0;
+    position: absolute;
+    top: 1px;
+    width: calc(100% - 4px);
+}

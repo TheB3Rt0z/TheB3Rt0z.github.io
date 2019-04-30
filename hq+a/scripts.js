@@ -23,6 +23,8 @@ function save_data (application_title)
 {
 	console.log(window.hqa_data);
 	
+	localStorage.setItem('hqa_data', JSON.stringify(window.hqa_data));
+	
 	var data_save = setInterval(function ()
 	{
 		application_title.removeClass('saving-data');
@@ -32,7 +34,9 @@ function save_data (application_title)
 
 function init ()
 {
-	window.hqa_data = {};
+	window.hqa_data = localStorage.getItem('hqa_data')
+	                ? JSON.parse(localStorage.getItem('hqa_data'))
+	                : {status: 'preparation'};
 	
 	/*var html = document.documentElement;
 	if (html.hasOwnProperty('requestFullscreen')) {
@@ -50,23 +54,39 @@ function init ()
     	var application_title = $('table th.title'),
     	    status_controller = $('#status-controller'),
     	    status_controller_import = status_controller.find('#status-import'),
-    	    status_controller_export = status_controller.find('#status-export');
+    	    status_controller_export = status_controller.find('#status-export'),
+    	    utility_textarea = $('#footer ~ textarea');
+    	
+    	if (window.hqa_data.status == 'in-game') {
+    		status_controller.addClass('active');
+    	}
     	
     	status_controller.on('click', function (e)
 		{
     		$(this).toggleClass('active');
+    		
+    		if ($(this).hasClass('active')) {
+    			window.hqa_data.status = 'in-game';
+    		} else {
+    			window.hqa_data.status = 'preparation';
+    		}
 		});
     	
+    	utility_textarea.on('dblclick submit', function (e)
+		{
+    		$(this).hide(255);
+		});
+
     	status_controller_import.on('click', function (e)
 		{
     		e.stopPropagation();
-    		alert('IMPORT!');
+    		utility_textarea.val(null).show(255).focus();
 		});
     	
     	status_controller_export.on('click', function (e)
 		{
     		e.stopPropagation();
-    		alert('EXPORT!');
+    		utility_textarea.val(JSON.stringify(window.hqa_data)).show(255).select();
 		});
     	
     	/* audio */
@@ -76,9 +96,6 @@ function init ()
     	    audio_loop = true,
     	    audio_loop_control = $('#playlist #player-loop'),
     	    audio_stop_control = $('#playlist #player-stop');
-    	
-    	/*audio_player.load()
-    	audio_player.play();*/ // not working because of policies..
     	
     	audio_loop_control.on('click', function ()
 		{
@@ -118,5 +135,5 @@ function init ()
     	var application_title = $('table th.title');
     	application_title.addClass('saving-data');
         save_data(application_title);
-    }, 33333); // milliseconds
+    }, 4096); // milliseconds
 }
