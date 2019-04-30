@@ -80,8 +80,14 @@ table td.icon {
 
 table th.title,
 table td.copyright {
+	transition: .255s;
     white-space: nowrap;
 }
+
+table th.title.saving-data {
+	color: red;
+}
+
 table td.logo {
 	text-align: right;
 }
@@ -153,7 +159,7 @@ nav {
 
 #header #status-controller > div > span > button {
 	border-radius: 3px;
-	color: white;
+	color: black;
 	cursor: pointer;
 	font-size: .75em;
 	margin: 1%;

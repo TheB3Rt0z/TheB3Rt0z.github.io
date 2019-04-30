@@ -19,8 +19,21 @@ if (typeof jQuery == 'undefined') {
     init();
 }
 
+function save_data (application_title)
+{
+	console.log(window.hqa_data);
+	
+	var data_save = setInterval(function ()
+	{
+		application_title.removeClass('saving-data');
+		clearInterval(data_save);
+	}, 255);
+}
+
 function init ()
 {
+	window.hqa_data = {};
+	
 	/*var html = document.documentElement;
 	if (html.hasOwnProperty('requestFullscreen')) {
 		html.requestFullscreen();
@@ -34,7 +47,8 @@ function init ()
 	
     $(function ()
     {
-    	var status_controller = $('#status-controller'),
+    	var application_title = $('table th.title'),
+    	    status_controller = $('#status-controller'),
     	    status_controller_import = status_controller.find('#status-import'),
     	    status_controller_export = status_controller.find('#status-export');
     	
@@ -98,4 +112,11 @@ function init ()
     		}
     	};
     });
+    
+    var auto_save = setInterval(function ()
+    {
+    	var application_title = $('table th.title');
+    	application_title.addClass('saving-data');
+        save_data(application_title);
+    }, 33333); // milliseconds
 }
