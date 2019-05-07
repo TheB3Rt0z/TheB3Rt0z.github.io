@@ -67,13 +67,17 @@ function init ()
     	
     	status_controller.on('click', function (e)
 		{
-    		$(this).toggleClass('active');
-    		
     		if ($(this).hasClass('active')) {
-    			window.hqa_data.status = 'in-game';
+    			if (confirm('Are you SURE?')) {
+    				window.hqa_data.status = 'preparation';
+    			} else {
+    				return;
+    			}
     		} else {
-    			window.hqa_data.status = 'preparation';
+    			window.hqa_data.status = 'in-game';
     		}
+    		
+    		$(this).toggleClass('active');
 		});
 
     	status_controller_import.on('click', function (e)
