@@ -20,10 +20,8 @@ if (typeof jQuery == 'undefined') {
 }
 
 function save_data (application_title)
-{
-	console.log(window.hqa_data);
-	
-	localStorage.setItem('hqa_data', JSON.stringify(window.hqa_data));
+{	
+	localStorage.setItem('hqa_data', JSON.stringify(window.hqa_data));//console.log(window.hqa_data); // just for debug
 	
 	var data_save = setInterval(function ()
 	{

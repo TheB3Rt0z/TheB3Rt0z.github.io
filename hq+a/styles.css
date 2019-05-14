@@ -195,6 +195,28 @@ nav {
 	margin-left: 6px;
 }
 
+#content #sidebar #playlist thead {
+	float: left;
+	position: absolute;
+	width: calc(44% + 3px);
+}
+#content #sidebar #playlist thead tr {
+	display: block;
+	float: left;
+    width: 100%
+}	
+#content #sidebar #playlist thead tr th {
+	display: block;
+    float: left;
+    width: 100%;	
+}
+#content #sidebar #playlist tbody {
+	display: block;
+	overflow-y: auto;
+	margin-top: 12.5%;
+	max-height: 600px;
+}
+
 #content #sidebar #playlist th span {
 	color: #999;
 	cursor: pointer;
