@@ -1,0 +1,19 @@
+@media only screen and (min-width: 1024px) /* big mobile */
+{
+
+}
+
+@media only screen and (min-width: 768px) /* mobile */
+{
+
+}
+
+@media only screen and (max-width: 480px) /* small mobile */
+{
+
+}
+
+@media only screen and (max-width: 375px) /* smaller mobile */
+{
+
+}

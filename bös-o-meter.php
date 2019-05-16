@@ -451,7 +451,7 @@ if (ob_start()) {
     	</body>
     </html>
     <?php
-    file_put_contents('./' . basename(__FILE__, '.php') . '.htm', ob_get_contents());
+    file_put_contents('./' . basename(__FILE__, '.php') . '.html', ob_get_contents());
 	ob_end_flush();
 }
 
