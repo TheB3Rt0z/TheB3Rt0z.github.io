@@ -1,3 +1,5 @@
+/* https://en.wikipedia.org/wiki/Web_colors#Color_table */
+
 html {
     background-attachment: fixed;
     background-color: white;
@@ -9,4 +11,54 @@ html {
     max-width: 1024px;
     padding: 0;
     width: 100%;
+}
+
+body {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	margin: 2px;
+	padding: 2px;
+}
+
+p {
+	margin: 2px 0;
+	overflow: hidden;
+	padding: 2px;
+}
+
+table {
+    border-spacing: 0;
+    width: 100%;
+}
+
+table thead th {
+	background-color: #fff; 
+    border: solid 2px #eee;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 4px;
+    text-align: left;
+    transition: .128s;
+}
+table thead:hover th {
+	border-color: #999;
+    color: #999;
+}
+table thead.active th {
+	border-color: #009 !important;
+	color: #009 !important;
+}
+
+table thead th i {
+    vertical-align: bottom;
+}
+
+table tbody {
+	display: none;
+}
+
+table tbody td {
+	background-color: #fff; 
+    border: solid 2px #eee;
+    border-radius: 4px;
+    padding: 4px;
 }

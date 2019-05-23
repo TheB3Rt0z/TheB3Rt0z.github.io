@@ -60,13 +60,13 @@ function init ()
     	status_controller_import.on('click', function (e)
 		{
     		e.stopPropagation();
-    		utility_textarea.val(null).show(255).focus();
+    		utility_textarea.val(null).show(DEFAULT_DELAY).focus();
 		});
     	
     	status_controller_export.on('click', function (e)
 		{
     		e.stopPropagation();
-    		utility_textarea.val(JSON.stringify(window.hqa_data)).show(255).select();
+    		utility_textarea.val(JSON.stringify(window.hqa_data)).show(DEFAULT_DELAY).select();
 		});
     	
     	reset_button.on('click', function ()
@@ -79,7 +79,7 @@ function init ()
     	
     	utility_textarea.on('dblclick submit', function (e)
 		{
-    		$(this).hide(255);
+    		$(this).hide(DEFAULT_DELAY);
 		});
     	
     	/* audio */

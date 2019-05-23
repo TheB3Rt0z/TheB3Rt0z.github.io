@@ -15,6 +15,9 @@ if (typeof jQuery == 'undefined') {
         init();
     }
 } else {
+	
+	var DEFAULT_DELAY = 256, // milliseconds
+	    DEFAULT_LANGUAGE = 'IT';
     
     init();
 }
