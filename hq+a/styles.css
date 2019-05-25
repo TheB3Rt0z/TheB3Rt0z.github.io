@@ -197,8 +197,8 @@ nav {
 
 #content #sidebar #playlist thead {
 	float: left;
-	position: absolute;
-	width: calc(44% + 3px);
+	position: relative;
+	width: calc(100% - 14px);
 }
 #content #sidebar #playlist thead tr {
 	display: block;
@@ -208,7 +208,7 @@ nav {
 #content #sidebar #playlist thead tr th {
 	display: block;
     float: left;
-    width: 100%;	
+    width: 100%;
 }
 #content #sidebar #playlist tbody {
 	display: block;
