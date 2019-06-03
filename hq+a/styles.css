@@ -221,6 +221,10 @@ nav {
 	max-height: 600px;
 }
 
+#content #sidebar #playlist th.reduced-opacity {
+	opacity: .666;
+}
+
 #content #sidebar #playlist th span {
 	color: #999;
 	cursor: pointer;
