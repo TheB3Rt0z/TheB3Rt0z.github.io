@@ -188,6 +188,7 @@ nav {
 #content #section,
 #content #sidebar {
 	float: left;
+	transition: .25s;
 	width: calc(50% - 3px);
 }
 
@@ -258,6 +259,38 @@ nav {
 #content #sidebar #playlist td a {
 	display: block;
     font-size: .75em;
+}
+
+#content.in-game #section,
+#content.in-game #sidebar {
+	margin: 0;
+	width: 100%;
+}
+
+#content.in-game #sidebar #playlist thead,
+#content.in-game #sidebar #playlist thead tr,
+#content.in-game #sidebar #playlist thead tr th {
+	display: revert;
+	float: revert;
+	position: revert;
+	width: revert;
+}
+
+#content.in-game #sidebar #playlist tbody {
+	display: table-row-group;
+    margin-top: 6.25%;
+}
+
+#content.in-game #sidebar #playlist tbody tr {
+	width: 100%;
+}
+
+#content.in-game #sidebar #playlist tbody tr td {
+    white-space: nowrap;	
+}
+
+#content.in-game #sidebar #playlist tbody tr br {
+	display: none;
 }
 
 #footer {

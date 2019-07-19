@@ -40,21 +40,26 @@ function init ()
     	
     	if (window.hqa_data.status == 'in-game') {
     		status_controller.addClass('active');
+    		$('#content').addClass('in-game');
     	}
     	
     	status_controller.on('click', function (e)
 		{
     		if ($(this).hasClass('active')) {
+    			clearInterval(auto_save);
     			if (confirm('Are you SURE?')) {
     				window.hqa_data.status = 'preparation';
     			} else {
+    				start_autosave();
     				return;
     			}
+    			start_autosave();
     		} else {
     			window.hqa_data.status = 'in-game';
     		}
     		
     		$(this).toggleClass('active');
+    		$('#content').toggleClass('in-game');
 		});
 
     	status_controller_import.on('click', function (e)
@@ -123,10 +128,17 @@ function init ()
     	};
     });
     
-    var auto_save = setInterval(function ()
+    var auto_save = null;
+    
+    function start_autosave ()
     {
-    	var application_title = $('table th.title');
-    	application_title.addClass('saving-data');
-        save_data(application_title);
-    }, 2048); // milliseconds, circa 29,3 pro minute..
+    	auto_save = setInterval(function ()
+	    {
+	    	var application_title = $('table th.title');
+	    	application_title.addClass('saving-data');
+	        save_data(application_title);
+	    }, 2048); // milliseconds, circa 29,3 pro minute..
+    }
+    
+    start_autosave();
 }
