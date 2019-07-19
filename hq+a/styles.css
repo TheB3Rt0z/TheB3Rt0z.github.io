@@ -188,7 +188,7 @@ nav {
 #content #section,
 #content #sidebar {
 	float: left;
-	transition: .25s;
+	transition: .256s;
 	width: calc(50% - 3px);
 }
 
@@ -196,6 +196,7 @@ nav {
 	margin-left: 6px;
 }
 
+#content #section #navigation,
 #content #sidebar #playlist {
 	background-color: rgba(255, 255, 255, .25);
 }
@@ -226,12 +227,67 @@ nav {
 	opacity: .666;
 }
 
+#content #section #navigation th {
+	text-align: left;
+	text-decoration: none;
+}
+
+#content #section #navigation th span,
 #content #sidebar #playlist th span {
 	color: #999;
 	cursor: pointer;
 	transition: .128s;
 }
 
+#content #section #navigation th select {
+	background-color: #999;
+	color: white;
+	font-size: 1em;
+	font-weight; bold;
+	padding: 1px;
+}
+
+#content #section #navigation th span#dice-motto {
+	color: white;
+}
+
+#content #section #navigation th span#dice-move {
+	color: forestgreen;
+}
+
+#content #section #navigation th span#dice-attack {
+	color: orangered;
+}
+
+#content #section #navigation th #dice-amount,
+#content #section #navigation th span#dice-move,
+#content #section #navigation th span#dice-attack {
+	display: none;
+}
+
+#content.in-game #section #navigation th #dice-amount,
+#content.in-game #section #navigation th span#dice-move,
+#content.in-game #section #navigation th span#dice-attack {
+    display: initial;
+}
+
+#content #section #navigation th span#reset-data {
+	color: orangered;
+    float: right;
+    opacity: .666;
+}
+
+#content.in-game #section #navigation th span#dice-motto,
+#content.in-game #section #navigation th span#reset-data {
+	display: none;
+}
+
+#content #section #navigation th span#reset-data:hover {
+	opacity: 1;
+}
+
+#content #section #navigation th span#dice-move:hover,
+#content #section #navigation th span#dice-attack:hover,
 #content #sidebar #playlist th span:hover,
 #content #sidebar #playlist th span.active {
 	color: white;

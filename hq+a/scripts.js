@@ -11,12 +11,26 @@ function save_data (application_title)
 
 function init ()
 {
+	var default_data = {
+	    status: 'preparation',
+	    players: [
+	        {
+	        	key: 1
+	        }, {
+	        	key: 2
+		    }, {
+	        	key: 3
+		    }, {
+	        	key: 4
+		    }, {
+	        	key: 5
+		    }
+	    ]
+	};
+	
 	window.hqa_data = localStorage.getItem('hqa_data')
 	                ? JSON.parse(localStorage.getItem('hqa_data'))
-	                : {
-	    status: 'preparation',
-	    players: []
-	};
+	                : default_data;
 	
 	/*var html = document.documentElement;
 	if (html.hasOwnProperty('requestFullscreen')) {
@@ -74,9 +88,10 @@ function init ()
     		utility_textarea.val(JSON.stringify(window.hqa_data)).show(DEFAULT_DELAY).select();
 		});
     	
-    	reset_button.on('click', function ()
+    	reset_button.on('click', function () // only as debug
 		{
     		if (confirm('Are you SURE?!')) {
+    			clearInterval(auto_save);
     			localStorage.removeItem('hqa_data');
     			location.reload();
     		}
