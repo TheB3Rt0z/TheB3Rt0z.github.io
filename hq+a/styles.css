@@ -259,13 +259,13 @@ nav {
 	color: orangered;
 }
 
-#content #section #navigation th #dice-amount,
+#content #section #navigation th .dice-amount,
 #content #section #navigation th span#dice-move,
 #content #section #navigation th span#dice-attack {
 	display: none;
 }
 
-#content.in-game #section #navigation th #dice-amount,
+#content.in-game #section #navigation th .dice-amount,
 #content.in-game #section #navigation th span#dice-move,
 #content.in-game #section #navigation th span#dice-attack {
     display: initial;
@@ -275,6 +275,78 @@ nav {
 	color: orangered;
     float: right;
     opacity: .666;
+}
+
+#content #section #navigation th span#dice-result {
+    color: white;
+    cursor: default;
+    float: right;
+    margin-top: 2px;
+}
+
+#content #section #navigation th span#dice-result img {
+    background-color: white;
+    border-radius: 3px;
+    height: 20px;	
+}
+
+#content #section #navigation th span#dice-result .lds-ellipsis {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 18px;
+}
+
+#content #section #navigation th span#dice-result .lds-ellipsis div {
+    position: absolute;
+    top: 6px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #fff;
+    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+#content #section #navigation th span#dice-result .lds-ellipsis div:nth-child(1) {
+    left: 6px;
+    animation: lds-ellipsis1 .25s infinite;
+}
+#content #section #navigation th span#dice-result .lds-ellipsis div:nth-child(2) {
+    left: 6px;
+    animation: lds-ellipsis2 .25s infinite;
+}
+#content #section #navigation th span#dice-result .lds-ellipsis div:nth-child(3) {
+    left: 26px;
+    animation: lds-ellipsis2 .25s infinite;
+}
+#content #section #navigation th span#dice-result .lds-ellipsis div:nth-child(4) {
+    left: 45px;
+    animation: lds-ellipsis3 .25s infinite;
+}
+
+@keyframes lds-ellipsis1 {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@keyframes lds-ellipsis3 {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0);
+    }
+}
+@keyframes lds-ellipsis2 {
+    0% {
+        transform: translate(0, 0);
+    }
+    100% {
+        transform: translate(19px, 0);
+    }
 }
 
 #content.in-game #section #navigation th span#dice-motto,

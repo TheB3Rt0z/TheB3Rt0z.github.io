@@ -55,22 +55,30 @@
 	                <table>
 	                    <tr>
 	                        <th>
-                                <select id="dice-amount">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option selected="selected">3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                </select>
-                                &nbsp;
                                 Di(c)e
                                 <span id="dice-motto">are cast..</span>
                                 &nbsp;
+                                <select id="dice-move-amount" class="dice-amount">
+                                    <option value="1">1</option>
+                                    <option value="2" selected="selected">2</option>
+                                    <option value="3">3</option>
+                                </select>
+                                &nbsp;
                                 <span id="dice-move">MOVE</span>
+                                &nbsp;
+                                 <select id="dice-attack-amount" class="dice-amount">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3" selected="selected">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
                                 &nbsp;
                                 <span id="dice-attack">ATTACK</span>
                                 &nbsp;
 	                            <span id="reset-data">RESET</span>
+	                            &nbsp;
+	                            <span id="dice-result"></span>
 	                        </th>
 	                    </tr>
 	                </table>
@@ -336,7 +344,7 @@
                             </tr>
                             <tr>
                                 <td>
-                                    <a href="Javascript:;" rel="gbu_main_title">Ze Good, ze Bad<br /> and ze Ugly</a>
+                                    <a href="Javascript:;" rel="gbu_main_title">The Good, Bad<br /> and the Ugly</a>
                                 </td>
                                 <td>
                                     <a href="Javascript:;" rel="gbu_the_triello">The<br /> Triello</a>
@@ -424,13 +432,12 @@
                                 <li>
                                     scheda virtuale del personaggio:
                                     <ul>
+                                        <li>doppio aspetto, in preparazione e durante il gioco</li>
                                         <li>campi impostabili dei dati fissi & valori variabili nel gioco</li>
 		                                <li>counter dei mostri eliminati</li>
 		                            </ul>
                                 </li>
-                                <li>aggiungere elementi alla playlist</li>
-                                <li>aggiungere under-playlist definite</li>
-                                <li>lanciatore di dadi (per entrambi i tipi, con aspetto reale) random</li>
+                                <li>creare under-playlist definite</li>
                             </ol>
                         </td>
                     </tr>
