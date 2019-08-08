@@ -105,7 +105,7 @@ function init ()
     		}
     		
     		setTimeout(function () {
-    			dice_result.html(dices.join(" + ") + " = " + dices.reduce((pv, cv) => pv + cv, 0));
+    			dice_result.html(dices.join(" + ") + ' = <font color="white">' + dices.reduce((pv, cv) => pv + cv, 0)) + '</font>';
     		}, DEFAULT_DELAY * 3);
     	});
     	

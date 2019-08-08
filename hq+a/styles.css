@@ -278,7 +278,7 @@ nav {
 }
 
 #content #section #navigation th span#dice-result {
-    color: white;
+    /*color: white;*/
     cursor: default;
     float: right;
     margin-top: 2px;
