@@ -399,9 +399,9 @@ nav {
 #content.in-game #sidebar #playlist thead tr,
 #content.in-game #sidebar #playlist thead tr th {
 	display: revert;
-	float: revert;
+	float: none;
 	position: revert;
-	width: revert;
+	/*width: revert;*/
 }
 
 #content.in-game #sidebar #playlist tbody {
