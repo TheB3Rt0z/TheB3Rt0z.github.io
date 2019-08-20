@@ -6,7 +6,7 @@ function save_data (application_title)
 	{
 		application_title.removeClass('saving-data');
 		clearInterval(data_save);
-	}, 256);
+	}, DEFAULT_DELAY);
 }
 
 function init ()
@@ -153,7 +153,10 @@ function init ()
     	    audio_tracks = $('#playlist a'),
     	    audio_loop = true,
     	    audio_loop_control = $('#playlist #player-loop'),
-    	    audio_stop_control = $('#playlist #player-stop');
+    	    audio_stop_control = $('#playlist #player-stop'),
+    	    play_all_control = $('#playlist .play-all'),
+    	    shuffle_control = $('#playlist .shuffle'),
+		    tracker = null;
     	
     	audio_loop_control.on('click', function ()
 		{
@@ -166,7 +169,57 @@ function init ()
     		audio_player.pause();
     		audio_player.currentTime = 0;
     		audio_tracks.removeClass('active');
+    		play_all_control.removeClass('active');
+    		clearInterval(tracker);
 		});
+    	
+    	play_all_control.on('click', function ()
+    	{
+    		if ($(this).hasClass('active')) {
+    			return audio_stop_control.trigger('click');
+    		}
+    		
+    		var playlist = $(this).addClass('active').attr('rel'),
+    		    tracks = $('tr[rel="' + playlist + '"]').find('a'),
+    		    tracks_number = tracks.length,
+    		    shuffle = $(this).hasClass('shuffle')
+    		    current_track = shuffle ? Math.floor(Math.random() * tracks_number) : 0,
+    		    audio_loop = false;
+    		
+    		audio_loop_control.removeClass('active');
+
+    		audio_tracks.removeClass('active');
+    		
+    		function set_track (track)
+    		{
+    			var track = tracks.eq(track),
+    			    slug = track.prop('rel');
+    			audio_player.src = 'ost/' + slug + '.mp3';
+        		audio_player.play();
+        		track.addClass('active');
+    		}
+    		
+    		set_track(current_track);
+    		
+    		tracker = setInterval(function ()
+    		{
+    			if (audio_player.paused) {
+    				if (shuffle) {
+    					current_track = Math.floor(Math.random() * tracks_number);
+    				}
+    				current_track++;
+    				if (current_track == tracks_number) {
+    					current_track = 0;
+    				}
+    				set_track(current_track);
+    			}
+    		}, DEFAULT_DELAY * 4);
+    	});
+    	
+    	shuffle_control.on('click', function ()
+    	{
+    		
+    	});
     	
     	audio_tracks.on('click', function (e)
         {
@@ -197,7 +250,7 @@ function init ()
 	    	var application_title = $('table th.title');
 	    	application_title.addClass('saving-data');
 	        save_data(application_title);
-	    }, 2048); // milliseconds, circa 29,3 pro minute..
+	    }, DEFAULT_DELAY * 8); // milliseconds, each 2 seconds circa..
     }
     
     start_autosave();

@@ -366,11 +366,13 @@ nav {
     text-shadow: 0 0 5px red;
 }
 
-#content #sidebar #playlist th span#player-loop {
+#content #sidebar #playlist th span#player-loop,
+#content #sidebar #playlist th span.play-all {
     float: left;
 }
 
-#content #sidebar #playlist th span#player-stop {
+#content #sidebar #playlist th span#player-stop,
+#content #sidebar #playlist th span.shuffle {
     float: right;
 }
 
