@@ -1,31 +1,33 @@
 <html>
     <head>
         <title>SchoolQuest</title>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="noindex, nofollow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="../common.css" />
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <link rel="stylesheet" type="text/css" href="rwd.css" />
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
+  		<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-database.js"></script>
+  		<script src="scripts.js"></script>
     </head>
     <body>
-		<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-app.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-auth.js"></script>
-  		<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-firestore.js"></script>
-  		<script src="https://www.gstatic.com/firebasejs/7.8.0/firebase-database.js"></script>
-		<script>
-			var firebaseConfig = {
-				apiKey: "AIzaSyA5vcI2Ldd-xhxIPFdfMn7zk71rsH_c2u8",
-				authDomain: "schoolquest-de63a.firebaseapp.com",
-				databaseURL: "https://schoolquest-de63a.firebaseio.com",
-				projectId: "schoolquest-de63a",
-				storageBucket: "schoolquest-de63a.appspot.com",
-				messagingSenderId: "913587870362",
-				appId: "1:913587870362:web:f29f3c42cb82fcd5021d23"
-			};
-			firebase.initializeApp(firebaseConfig);
-			var database = firebase.database();
-			/*database.ref('data').set({
-			    record: 0
-			});*/
-			var record = database.ref('record');
-			record.on('value', function (snapshot) {
-				console.log(snapshot.val()); 
-			});
-		</script>
+    	<div id="points-box">
+    		POINTS:<span>???</span>
+    	</div>
+    	<div id="record-box">
+    		RECORD:<span>???</span>
+    	</div>
+    	<div id="logo-box">
+    		<img src="./logo.jpg" alt="schoolQuest" />
+    	</div>
+    	<div id="start-box">
+    		PRESS SPACE BAR OR CLICK TO START!
+    	</div>
     </body>
 </html>

@@ -1,0 +1,21 @@
+@media only screen and (max-width: 1024px) {
+
+	body #logo-box {
+    	top: 25%;
+	}
+	
+	body #start-box {
+		top: 90%;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+
+	body #logo-box {
+    	top: 30%;
+	}
+	
+	body #start-box {
+		top: 80%;
+	}
+}
