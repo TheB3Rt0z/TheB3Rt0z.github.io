@@ -34,7 +34,7 @@ $html = str_replace(array_map(function ($value)
                     $cons['user'],
                     $html);
 
-echo $html;
+echo str_replace(JSM_APP_TEMPLATE_PATH, '../' . JSM_APP_TEMPLATE_PATH, $html);
 
 if (JSM_DEV_OUTPUT_COMPRESSION) {
     $html = str_replace(["  ", "\t", "\n", "\r"],
