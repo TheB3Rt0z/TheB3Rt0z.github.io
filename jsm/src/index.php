@@ -1,10 +1,10 @@
-<?php
+<?php // https://help.github.com/en/github/working-with-github-pages/about-github-pages
 
 $html = file_get_contents('./template.html');
 
 $conf = json_decode(file_get_contents('../conf.json'), true);
-$localConf = json_decode(file_get_contents('../local/conf.json'), true);
-$conf = array_replace_recursive($conf, $localConf);var_dump($conf); // debug
+$localConf = json_decode(file_get_contents('../local/conf.json'), true) ?? [];
+$conf = array_replace_recursive($conf, $localConf);//var_dump($conf); // debug
 
 function setConfigurationConstants ($value, $path = ['JSM'])
 {
@@ -18,7 +18,7 @@ function setConfigurationConstants ($value, $path = ['JSM'])
 }
 setConfigurationConstants($conf);
 
-$cons = get_defined_constants(true);var_dump($cons['user']); // debug
+$cons = get_defined_constants(true);//var_dump($cons['user']); // debug
 
 $html = str_replace(array_map(function ($value)
                         {
@@ -27,6 +27,12 @@ $html = str_replace(array_map(function ($value)
                     $cons['user'],
                     $html);
 
-file_put_contents('../index.html', $html);
-
 echo $html;
+
+if (JSM_DEV_OUTPUT_COMPRESSION) {
+    $html = str_replace(["  ", "\t", "\n", "\r"],
+                        '',
+                        $html);
+}
+
+file_put_contents('../index.html', $html);

@@ -1,4 +1,17 @@
 {
+	"app": {
+		"language": {
+			"code": "en"
+		},
+		"template": {
+			"path": false
+		}
+	},
+	"dev": {
+		"output": {
+			"compression": true
+		}
+	},
 	"html": {
 		"head": {
 			"title": "JSM"

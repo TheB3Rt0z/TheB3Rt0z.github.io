@@ -1,7 +1,10 @@
 {
-	"html": {
-		"head": {
-			"title": "JSM LOCAL"
+	"app": {
+		"language": {
+			"code": "it"
+		},
+		"template": {
+			"path": "templates/default/"
 		}
 	}
 }
