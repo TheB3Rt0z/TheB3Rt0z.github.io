@@ -14,7 +14,15 @@
 	},
 	"html": {
 		"head": {
-			"title": "JSM"
+			"title": "JSM",
+			"meta": {
+				"robots": "index, follow"
+			}
+		}
+	},
+	"user": {
+		"login": {
+			"required": true
 		}
 	}
 }
