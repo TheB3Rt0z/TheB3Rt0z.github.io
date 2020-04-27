@@ -1,0 +1,122 @@
+<style>
+    body {
+        margin: 0 !important;
+    }
+    #jsm-drwl {
+        background-color: rgba(0, 32, 64, .96);
+        border-radius: 12px 0 0 12px;
+        box-shadow: 0 0 12px rgba(0, 16, 32, .96);
+        color: white;
+        cursor: pointer;
+        display: block;
+        font-family: "Lucida Console", Monaco, monospace;
+        font-size: 10pt;
+        height: 12px;
+        line-height: 1;
+        padding: 10px 14px 10px 10px;
+        position: fixed;
+        right: 0;
+        top: 17px;
+    }
+    #jsm-console {
+        background-color: rgba(0, 32, 64, .96);
+        border-radius: 12px 0 0 0;
+        box-shadow: 0 0 12px rgba(0, 16, 32, .96);
+        color: white;
+        font-family: "Lucida Console", Monaco, monospace;
+        font-size: 10pt;
+        height: calc(100% - 90px);
+        overflow-y: scroll;
+        padding: 10px;
+        position: fixed;
+        right: -440px;
+        text-shadow: 0 0 6px rgba(0, 32, 64, .96);
+        top: 70px;
+        transition: .125s;
+        width: 420px;
+    }
+    #jsm-console.active {
+        right: -15px;
+    }
+    #jsm-console .toggle-button {
+        background-color: rgba(0, 32, 64, .96);
+        border-radius: 12px 0 0 12px;
+        box-shadow: 0 0 12px rgba(0, 16, 32, .96);
+        cursor: pointer;
+        display: block;
+        font-size: 24px;
+        height: 32px;
+        padding-right: 6px;
+        position: fixed;
+        right: 0;
+        text-align: center;
+        top: 75px;
+        transition: .125s;
+        user-select: none;
+        width: 32px;
+    }
+    #jsm-console.active .toggle-button {
+        background-color: transparent;
+        border-radius: 0;
+        box-shadow: none;
+        top: 73px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+    }
+    #jsm-console .toggle-button:hover {
+        text-shadow: 0 0 6px white;
+    }
+</style>
+
+<span id="jsm-drwl">
+    DR / WL: <strong></strong>
+</span>
+
+<div id="jsm-console">
+    <span class="toggle-button">&oplus;</span>
+    <strong>User defined costants</strong>:
+    <p>
+        <?php
+        foreach ($cons['user'] as $key => $value) {
+            if (is_null($value)) {
+                $value = 'NULL';
+            } else if (is_bool($value)) {
+                $value = $value ? 'TRUE' : 'FALSE';
+            } else if (is_string($value)) {
+                $value = '"' . $value .'"';
+            }
+            echo $key . ': <strong>' . $value . '</strong><br />';
+        }
+        ?>
+    </p>
+    <br />
+    <br />
+</div>
+
+<script>
+    var startTime = Date.now(),
+        domReadyWindowLoad = '';
+
+    $(function()
+    {
+        domReadyWindowLoad = Date.now() - startTime + "ms";
+
+        var jsmConsole = $('#jsm-console'),
+            jsmConsoleToggleButton = jsmConsole.children('.toggle-button');
+
+        jsmConsoleToggleButton.on('click', function(e)
+        {
+            jsmConsole.toggleClass('active');
+        });
+    });
+
+    $(window).on('load', function(e)
+    {
+        domReadyWindowLoad += " / " + (Date.now() - startTime) + 'ms';
+        $('#jsm-drwl > strong').text(domReadyWindowLoad);
+        $('#jsm-drwl').on('click', function (e)
+        {
+            $(this).fadeOut(125);
+        });
+    });
+</script>

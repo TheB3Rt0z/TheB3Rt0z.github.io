@@ -3,21 +3,26 @@
 		"language": {
 			"code": "en"
 		},
-		"template": {
-			"path": false
-		}
+		"template": null
 	},
 	"dev": {
+		"frontend": {
+			"console": true
+		},
 		"output": {
 			"compression": true
 		}
 	},
 	"html": {
 		"head": {
-			"title": "JSM",
 			"meta": {
+				"author": "JSM Engine 2020",
+				"copyright": "© 2011-2020 LVK",
+				"description": null,
+				"keywords": null,
 				"robots": "index, follow"
-			}
+			},
+			"title": "JSM"
 		}
 	},
 	"user": {

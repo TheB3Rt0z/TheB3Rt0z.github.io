@@ -16,7 +16,11 @@ function setConfigurationConstants ($value, $path = ['JSM'])
             setConfigurationConstants($value, array_merge($path, [strtoupper($key)]));
         }
     } else {
-        define(implode('_', $path), $value);
+        $constantName = implode('_', $path);
+        define($constantName, $value);
+        if ($constantName == 'JSM_APP_TEMPLATE') {
+            define('JSM_APP_TEMPLATE_PATH', 'templates/' . ($value ? $value . '/' : ''));
+        }
     }
 }
 setConfigurationConstants($conf);
@@ -40,86 +44,6 @@ if (JSM_DEV_OUTPUT_COMPRESSION) {
 
 file_put_contents('../index.html', $html);
 
-?>
-<style>
-    body {
-        margin: 0 !important;
-    }
-    #jsm-console {
-        background-color: rgba(0, 32, 64, .96);
-        border-radius: 12px 0 0 0;
-        box-shadow: 0 0 12px rgba(0, 16, 32, .96);
-        color: white;
-        font-family: "Lucida Console", Monaco, monospace;
-        font-size: 10pt;
-        height: calc(100% - 32px);
-        margin: 0;
-        overflow-x: visible;
-        overflow-y: scroll;
-        padding: 10px;
-        position: fixed;
-        right: -400px;
-        text-shadow: 0 0 6px rgba(0, 32, 64, .96);
-        top: 12px;
-        transition: .125s;
-        width: 380px;
-    }
-    #jsm-console.active {
-        right: 0;
-    }
-    #jsm-console .toggle-button {
-        background-color: rgba(0, 32, 64, .96);
-        border-radius: 12px 0 0 12px;
-        box-shadow: 0 0 12px rgba(0, 16, 32, .96);
-        cursor: pointer;
-        display: block;
-        font-size: 24px;
-        height: 32px;
-        padding-right: 6px;
-        position: fixed;
-        right: 0;
-        text-align: center;
-        top: 17px;
-        transition: .125s;
-        width: 32px;
-    }
-    #jsm-console.active .toggle-button {
-        background-color: transparent;
-        border-radius: 0;
-        box-shadow: none;
-        top: 15px;
-        transform: rotate(-45deg);
-        -webkit-transform: rotate(-45deg);
-    }
-    #jsm-console .toggle-button:hover {
-        text-shadow: 0 0 6px white;
-    }
-</style>
-<div id="jsm-console">
-    <span class="toggle-button">&oplus;</span>
-    <strong>User defined costants</strong>:
-    <p>
-        <?php
-        foreach ($cons['user'] as $key => $value) {
-            if (is_bool($value)) {
-                $value = $value ? 'true' : 'false';
-            } else if (is_string($value)) {
-                $value = '"' . $value .'"';
-            }
-            echo $key . ': <strong>' . $value . '</strong><br />';
-        }
-        ?>
-    </p>
-    <br />
-    <br />
-</div>
-<script>
-    $(function() {
-        var jsm_console = $('#jsm-console'),
-            jsm_console_toggle_button = jsm_console.children('.toggle-button');
-        jsm_console_toggle_button.on('click', function(e)
-        {
-            jsm_console.toggleClass('active');
-        });
-    });
-</script>
+if (JSM_DEV_FRONTEND_CONSOLE) {
+    require_once './frontend/console.phtml';
+}
