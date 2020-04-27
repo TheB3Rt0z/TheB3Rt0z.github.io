@@ -92,4 +92,4 @@ print('</pre><p>Test ENDED</p>');
 https://stackoverflow.com/questions/28806944/google-analytics-php-sending-information
 https://developers.google.com/analytics/devguides/collection/protocol/v1/devguide#measuring-purchases#
 https://developers.google.com/analytics/devguides/collection/protocol/v1/parameters
-
+*/
