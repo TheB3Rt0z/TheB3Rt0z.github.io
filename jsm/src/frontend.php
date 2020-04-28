@@ -19,8 +19,8 @@ function setConfigurationConstants ($value, $path = ['JSM'])
     } else {
         $constantName = implode('_', $path);
         define($constantName, $value);
-        if ($constantName == 'JSM_APP_TEMPLATE') {
-            define('JSM_APP_TEMPLATE_PATH', 'templates/' . ($value ? $value . '/' : ''));
+        if ($constantName == 'JSM_APP_SKIN') {
+            define('JSM_APP_SKIN_PATH', 'skins/' . ($value ? $value . '/' : ''));
         }
     }
 }
@@ -39,7 +39,7 @@ if (JSM_DEV_FRONTEND_CONSOLE) {
     require_once './frontend/console/script.phtml';
 }
 
-echo str_replace(JSM_APP_TEMPLATE_PATH, '../' . JSM_APP_TEMPLATE_PATH, $html);
+echo str_replace(JSM_APP_SKIN_PATH, '../' . JSM_APP_SKIN_PATH, $html);
 
 if (JSM_DEV_OUTPUT_COMPRESSION) {
     $html = str_replace(["  ", "\t", "\n", "\r"],
