@@ -85,7 +85,7 @@
 </style>
 
 <span id="jsm-drwl" class="active">
-    DR (WL): <strong></strong>
+    DR in <strong></strong>
 </span>
 
 <div id="jsm-console">
@@ -120,13 +120,6 @@
             jsm;
 
         jsmDrwlStrong.text(jsmDrwlStrongMs + "ms").addClass(jsmDrwlStrongMs > 1000 ? 'warning' : 'all-green');
-
-        $(window).on('load', function(e)
-        {
-            var jsmDrwlStrongText = jsmDrwlStrong.text();
-
-            jsmDrwlStrong.text(jsmDrwlStrongText + ' (' + (Date.now() - startTime) + 'ms)');
-        });
 
         jsmDrwl.on('click', function (e)
         {
