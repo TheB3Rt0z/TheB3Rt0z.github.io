@@ -13,10 +13,26 @@
         font-size: 10pt;
         height: 12px;
         line-height: 1;
-        padding: 10px 14px 10px 10px;
+        padding: 10px 14px 10px 8px;
         position: fixed;
-        right: 0;
+        left: calc(100% - 34px);
         top: 17px;
+        transition: .125s;
+        user-select: none;
+        white-space: nowrap;
+    }
+    #jsm-drwl:hover {
+        text-shadow: 0 0 6px white;
+    }
+    #jsm-drwl.active {
+        left: auto;
+        right: 0;
+    }
+    #jsm-drwl .all-green {
+        color: yellowgreen;
+    }
+    #jsm-drwl .warning {
+        color: tomato;
     }
     #jsm-console {
         background-color: rgba(0, 32, 64, .96);
@@ -46,7 +62,7 @@
         display: block;
         font-size: 24px;
         height: 32px;
-        padding-right: 6px;
+        padding-right: 2px;
         position: fixed;
         right: 0;
         text-align: center;
@@ -68,8 +84,8 @@
     }
 </style>
 
-<span id="jsm-drwl">
-    DR / WL: <strong></strong>
+<span id="jsm-drwl" class="active">
+    DR (WL): <strong></strong>
 </span>
 
 <div id="jsm-console">
@@ -94,29 +110,32 @@
 </div>
 
 <script>
-    var startTime = Date.now(),
-        domReadyWindowLoad = '';
-
     $(function()
     {
-        domReadyWindowLoad = Date.now() - startTime + "ms";
+        var jsmDrwl = $('#jsm-drwl'),
+            jsmDrwlStrong = jsmDrwl.children('strong'),
+            jsmDrwlStrongMs = Date.now() - startTime,
+            jsmConsole = $('#jsm-console'),
+            jsmConsoleToggleButton = jsmConsole.children('.toggle-button'),
+            jsm;
 
-        var jsmConsole = $('#jsm-console'),
-            jsmConsoleToggleButton = jsmConsole.children('.toggle-button');
+        jsmDrwlStrong.text(jsmDrwlStrongMs + "ms").addClass(jsmDrwlStrongMs > 1000 ? 'warning' : 'all-green');
+
+        $(window).on('load', function(e)
+        {
+            var jsmDrwlStrongText = jsmDrwlStrong.text();
+
+            jsmDrwlStrong.text(jsmDrwlStrongText + ' (' + (Date.now() - startTime) + 'ms)');
+        });
+
+        jsmDrwl.on('click', function (e)
+        {
+            $(this).toggleClass('active');//fadeOut(125);
+        });
 
         jsmConsoleToggleButton.on('click', function(e)
         {
             jsmConsole.toggleClass('active');
-        });
-    });
-
-    $(window).on('load', function(e)
-    {
-        domReadyWindowLoad += " / " + (Date.now() - startTime) + 'ms';
-        $('#jsm-drwl > strong').text(domReadyWindowLoad);
-        $('#jsm-drwl').on('click', function (e)
-        {
-            $(this).fadeOut(125);
         });
     });
 </script>

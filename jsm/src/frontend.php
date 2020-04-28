@@ -3,6 +3,7 @@
 // https://help.github.com/en/github/working-with-github-pages/about-github-pages
 // https://dev.w3.org/html5/html-author/charref
 
+
 $html = file_get_contents('./template.html');
 
 $conf = json_decode(file_get_contents('../conf.json'), true);
@@ -33,6 +34,10 @@ $html = str_replace(array_map(function ($value)
                         }, array_keys($cons['user'])),
                     $cons['user'],
                     $html);
+
+if (JSM_DEV_FRONTEND_CONSOLE) {
+    require_once './frontend/console/script.phtml';
+}
 
 echo str_replace(JSM_APP_TEMPLATE_PATH, '../' . JSM_APP_TEMPLATE_PATH, $html);
 
