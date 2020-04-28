@@ -1,4 +1,4 @@
-<?php
+<?php include_once '../vendor/autoload.php';
 
 // https://help.github.com/en/github/working-with-github-pages/about-github-pages
 // https://dev.w3.org/html5/html-author/charref
