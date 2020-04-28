@@ -1,3 +1,26 @@
+<?php
+
+/**
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com and you will be sent a copy immediately.
+ *
+ * PHP version 7.2.18
+ *
+ * @category Frontend\Console
+ * @package  JSM
+ * @author   Bertozzi Matteo <bertozzi@i-ways.net>
+ * @license  http://opensource.org/licenses/osl-3.0.php Open Software License 3.0
+ * @link     https://github.com/TheB3Rt0z
+ */
+?>
+
 <style>
     body {
         margin: 0 !important;
@@ -15,7 +38,7 @@
         line-height: 1;
         padding: 10px 14px 10px 8px;
         position: fixed;
-        left: calc(100% - 34px);
+        left: calc(100% - 32px);
         top: 17px;
         transition: .125s;
         user-select: none;
@@ -62,7 +85,6 @@
         display: block;
         font-size: 24px;
         height: 32px;
-        padding-right: 2px;
         position: fixed;
         right: 0;
         text-align: center;
@@ -119,7 +141,8 @@
             jsmConsoleToggleButton = jsmConsole.children('.toggle-button'),
             jsm;
 
-        jsmDrwlStrong.text(jsmDrwlStrongMs + "ms").addClass(jsmDrwlStrongMs > 1000 ? 'warning' : 'all-green');
+        jsmDrwlStrong.text(jsmDrwlStrongMs + "ms")
+                     .addClass(jsmDrwlStrongMs > 1000 ? 'warning' : 'all-green');
 
         jsmDrwl.on('click', function (e)
         {
