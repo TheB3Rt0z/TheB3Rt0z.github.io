@@ -25,27 +25,61 @@
     body {
         margin: 0 !important;
     }
-    #jsm-drwl {
+    .right-bar {
+        background-color: rgba(0, 32, 64, .96);
+        border-radius: 12px 0 0 0;
+        box-shadow: 0 0 6px rgba(0, 16, 32, .96);
+        color: white;
+        font-family: "Lucida Console", Monaco, monospace;
+        font-size: 10pt;
+        position: fixed;
+        text-shadow: 0 0 6px rgba(0, 32, 64, .96);
+        transition: .125s;
+    }
+    .right-bar .toggle-button {
+        cursor: pointer;
+        font-size: 24px;
+        left: 6px;
+        position: absolute;
+        top: 4px;
+        transition: .125s;
+        user-select: none;
+    }
+    #jsm-console.right-bar .toggle-button {
         background-color: rgba(0, 32, 64, .96);
         border-radius: 12px 0 0 12px;
         box-shadow: 0 0 6px rgba(0, 16, 32, .96);
-        color: white;
-        cursor: pointer;
         display: block;
-        font-family: "Lucida Console", Monaco, monospace;
-        font-size: 10pt;
+        height: 32px;
+        left: auto;
+        position: fixed;
+        right: 0;
+        text-align: center;
+        top: 68px;
+        width: 32px;
+    }
+    .right-bar.active .toggle-button {
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+    }
+    #jsm-console.right-bar.active .toggle-button {
+        background-color: transparent;
+        border-radius: 0;
+        box-shadow: none;
+        top: 66px;
+    }
+    .right-bar .toggle-button:hover {
+        text-shadow: 0 0 6px white;
+    }
+    #jsm-drwl {
+        border-radius: 12px 0 0 12px;
+        display: block;
         height: 12px;
         line-height: 1;
-        padding: 10px 14px 10px 8px;
-        position: fixed;
+        padding: 10px 8px 10px 32px;
         left: calc(100% - 32px);
         top: 17px;
-        transition: .125s;
-        user-select: none;
         white-space: nowrap;
-    }
-    #jsm-drwl:hover {
-        text-shadow: 0 0 6px white;
     }
     #jsm-drwl.active {
         left: auto;
@@ -58,59 +92,25 @@
         color: tomato;
     }
     #jsm-console {
-        background-color: rgba(0, 32, 64, .96);
-        border-radius: 12px 0 0 0;
-        box-shadow: 0 0 6px rgba(0, 16, 32, .96);
-        color: white;
-        font-family: "Lucida Console", Monaco, monospace;
-        font-size: 10pt;
         height: calc(100% - 83px);
         overflow-y: scroll;
         padding: 10px;
-        position: fixed;
         right: -440px;
-        text-shadow: 0 0 6px rgba(0, 32, 64, .96);
         top: 63px;
-        transition: .125s;
         width: 420px;
     }
     #jsm-console.active {
         right: -15px;
     }
-    #jsm-console .toggle-button {
-        background-color: rgba(0, 32, 64, .96);
-        border-radius: 12px 0 0 12px;
-        box-shadow: 0 0 6px rgba(0, 16, 32, .96);
-        cursor: pointer;
-        display: block;
-        font-size: 24px;
-        height: 32px;
-        position: fixed;
-        right: 0;
-        text-align: center;
-        top: 68px;
-        transition: .125s;
-        user-select: none;
-        width: 32px;
-    }
-    #jsm-console.active .toggle-button {
-        background-color: transparent;
-        border-radius: 0;
-        box-shadow: none;
-        top: 66px;
-        transform: rotate(-45deg);
-        -webkit-transform: rotate(-45deg);
-    }
-    #jsm-console .toggle-button:hover {
-        text-shadow: 0 0 6px white;
-    }
 </style>
 
-<span id="jsm-drwl" class="active">
-    DR in <strong></strong>
+<span id="jsm-drwl" class="right-bar active">
+    <span class="toggle-button">&oplus;</span>
+    document ready in
+    <strong></strong>
 </span>
 
-<div id="jsm-console">
+<div id="jsm-console" class="right-bar">
     <span class="toggle-button">&oplus;</span>
     <strong>User defined costants</strong>:
     <p>
@@ -137,21 +137,14 @@
         var jsmDrwl = $('#jsm-drwl'),
             jsmDrwlStrong = jsmDrwl.children('strong'),
             jsmDrwlStrongMs = Date.now() - startTime,
-            jsmConsole = $('#jsm-console'),
-            jsmConsoleToggleButton = jsmConsole.children('.toggle-button'),
-            jsm;
+            jsmRightBarToggleButtons = $('.right-bar .toggle-button');
 
         jsmDrwlStrong.text(jsmDrwlStrongMs + "ms")
                      .addClass(jsmDrwlStrongMs > 1000 ? 'warning' : 'all-green');
 
-        jsmDrwl.on('click', function (e)
+        jsmRightBarToggleButtons.on('click', function(e)
         {
-            $(this).toggleClass('active');//fadeOut(125);
-        });
-
-        jsmConsoleToggleButton.on('click', function(e)
-        {
-            jsmConsole.toggleClass('active');
+            $(this).parent().toggleClass('active');
         });
     });
 </script>
