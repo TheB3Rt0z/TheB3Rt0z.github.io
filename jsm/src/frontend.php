@@ -25,7 +25,7 @@ require_once '../vendor/autoload.php';
 $html = file_get_contents('./template.html');
 
 $conf = json_decode(file_get_contents('../conf.json'), true);
-$localConf = json_decode(file_get_contents('../local/conf.json'), true) ?: [];
+$localConf = json_decode(@file_get_contents('../local/conf.json'), true) ?: [];
 $conf = array_replace_recursive($conf, $localConf);
 
 /**
