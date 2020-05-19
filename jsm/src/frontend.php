@@ -21,6 +21,7 @@
  */
 
 require_once '../vendor/autoload.php';
+require_once './frontend/constants.php';
 
 $html = file_get_contents('./template.html');
 
@@ -28,28 +29,6 @@ $conf = json_decode(file_get_contents('../conf.json'), true);
 $localConf = json_decode(@file_get_contents('../local/conf.json'), true) ?: [];
 $conf = array_replace_recursive($conf, $localConf);
 
-/**
- * Function setConfConstants
- *
- * @param $value mixed
- * @param $path  array
- *
- * @return void
- */
-function setConfConstants($value, $path = ['JSM'])
-{
-    if (is_array($value)) {
-        foreach ($value as $key => $value) {
-            setConfConstants($value, array_merge($path, [strtoupper($key)]));
-        }
-    } else {
-        $constantName = implode('_', $path);
-        define($constantName, $value);
-        if ($constantName == 'JSM_APP_SKIN') {
-            define('JSM_APP_SKIN_PATH', 'skins/' . ($value ? $value . '/' : ''));
-        }
-    }
-}
 setConfConstants($conf);
 
 $cons = get_defined_constants(true);//var_dump($cons['user']); // debug
